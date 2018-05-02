@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_02_200831) do
+ActiveRecord::Schema.define(version: 2018_05_02_203201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 2018_05_02_200831) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "resources", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "youtube_url"
+    t.string "general_url"
+    t.string "color"
+    t.string "tag"
+    t.bigint "topic_id"
+    t.index ["topic_id"], name: "index_resources_on_topic_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.text "details"
@@ -40,6 +51,12 @@ ActiveRecord::Schema.define(version: 2018_05_02_200831) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_topics_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
