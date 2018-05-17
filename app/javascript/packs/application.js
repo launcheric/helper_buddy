@@ -1,13 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from '../components/App'
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "../App";
 
-document.addEventListener('DOMContentLoaded', () => {
-  let reactElement = document.getElementById('app')
+document.addEventListener("DOMContentLoaded", () => {
+  let reactElement = document.getElementById("app");
   if (reactElement) {
-    ReactDOM.render(
-      <App />,
-      reactElement
-    )
+    ReactDOM.render(<App />, reactElement);
   }
-})
+});
